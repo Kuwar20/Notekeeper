@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
 const NoteForm = ({ note, currentNote, onSave, onCancel }) => {
-  const [formData, setFormData] = useState(note);
+  const [formData, setFormData] = useState({
+    title: "",
+    tagline: "",
+    body: "",
+  });
+
+  useEffect(() => {
+    setFormData(note);
+  }, [note]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,13 +37,17 @@ const NoteForm = ({ note, currentNote, onSave, onCancel }) => {
             type="text"
             placeholder="Tagline"
             value={formData.tagline}
-            onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, tagline: e.target.value })
+            }
             className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none transition duration-200"
           />
           <textarea
             placeholder="Body"
             value={formData.body}
-            onChange={(e) => setFormData({ ...formData, body: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, body: e.target.value })
+            }
             className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none transition duration-200 min-h-32"
           />
           <div className="flex gap-4">
