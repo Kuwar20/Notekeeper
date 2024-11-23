@@ -91,11 +91,10 @@ const App = () => {
   );
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      darkMode 
-        ? "bg-neutral-900 text-neutral-100" 
-        : "bg-neutral-50 text-neutral-900"
-    }`}>
+    <div className={`min-h-screen transition-colors duration-300 ${darkMode
+      ? "bg-neutral-900 text-neutral-100"
+      : "bg-neutral-50 text-neutral-900"
+      }`}>
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Header */}
         <header className="flex items-center justify-between mb-12">
@@ -123,20 +122,18 @@ const App = () => {
               placeholder="Search notes..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className={`w-full pl-10 pr-4 py-2 rounded-lg border ${
-                darkMode 
-                  ? "bg-neutral-800 border-neutral-700 focus:border-neutral-600" 
-                  : "bg-white border-neutral-200 focus:border-neutral-300"
-              } outline-none transition-colors`}
+              className={`w-full pl-10 pr-4 py-2 rounded-lg border ${darkMode
+                ? "bg-neutral-800 border-neutral-700 focus:border-neutral-600"
+                : "bg-white border-neutral-200 focus:border-neutral-300"
+                } outline-none transition-colors`}
             />
           </div>
           <button
             onClick={() => setShowForm(true)}
-            className={`flex items-center justify-center px-4 py-2 rounded-lg ${
-              darkMode
-                ? "bg-neutral-800 hover:bg-neutral-700"
-                : "bg-neutral-900 text-white hover:bg-neutral-800"
-            } transition-colors`}
+            className={`flex items-center justify-center px-4 py-2 rounded-lg ${darkMode
+              ? "bg-neutral-800 hover:bg-neutral-700"
+              : "bg-neutral-900 text-white hover:bg-neutral-800"
+              } transition-colors`}
           >
             <PlusCircle className="w-4 h-4 mr-2" />
             <span className="font-medium">New Note</span>
@@ -144,18 +141,17 @@ const App = () => {
         </div>
 
         {/* Notification */}
-        <Notification 
-          message={notification} 
-          onClose={() => setNotification("")} 
+        <Notification
+          message={notification}
+          onClose={() => setNotification("")}
         />
 
         {/* Note Form */}
         {(showForm || currentNote) && (
-          <div className={`mb-8 rounded-xl ${
-            darkMode 
-              ? "bg-neutral-800 shadow-lg shadow-neutral-900/50" 
-              : "bg-white shadow-lg shadow-neutral-200/50"
-          }`}>
+          <div className={`mb-8 rounded-xl ${darkMode
+            ? "bg-neutral-800 shadow-lg shadow-neutral-900/50"
+            : "bg-white shadow-lg shadow-neutral-200/50"
+            }`}>
             <NoteForm
               note={currentNote || { title: "", tagline: "", body: "" }}
               currentNote={currentNote}

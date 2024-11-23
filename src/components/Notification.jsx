@@ -1,7 +1,7 @@
-import {useEffect} from "react";
+import { useEffect } from "react";
 
 const Notification = ({ message, onClose }) => {
-    
+
     useEffect(() => {
         if (message) {
             const timer = setTimeout(onClose, 3000);
